@@ -24,7 +24,7 @@
 # usage
 0. anotation 
    
-   you nedd install [spine-segment-pipeline pluin](../../spine-segment-pipeline)
+   you need install [spine-segment-pipeline pluin](/spine-segment-pipeline)
 
 1. set yaml config profile
    
@@ -80,4 +80,4 @@
 
 6. patch process time imgs(jupyter notebook)
    
-   see notebook  in spine-ipynb folder for details
+   see notebook  in "spine-ipynb" folder for details
