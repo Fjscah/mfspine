@@ -24,7 +24,7 @@
 # usage
 0. anotation 
    
-   you nedd install [spine-segment-pipeline pluin](..\..\spine-segment-pipeline)
+   you nedd install [spine-segment-pipeline pluin](../../spine-segment-pipeline)
 
 1. set yaml config profile
    
