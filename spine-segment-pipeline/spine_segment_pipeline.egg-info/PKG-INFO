@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: spine-segment-pipeline
+Version: 0.0.1
+Summary: A simple tool to segment spine with snake contour method
+Author: Fjscah
+Author-email: Epichide@gmail.com
+License: GNU
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Framework :: napari
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Testing
+Requires-Python: >=3.8
+License-File: LICENSE
+
+# installation
+
+1. enter folder: " spine-segment-pipeline "
+2. run : pip install -e . in command
+
+# file structure
+
+napari.yaml : plugin registration information include two widget and two sample
+
+__dock_widget.py : plugin widget code
+
+_sample_data.py : load sample
+
+# GUI screenshot
+
+![1666879731179|300x400](image/README/1666879731179.png "spine-segment-pipeline-label widget")
+
+# func 
+1. set spine point and grow spine area with geodesic algorithm and radiation kernel . Binary neuro morph resist its grow border.
+2. give four method to detect spine
+3. geodesic and chan vese method to get spine contour
+4. only serve as assist ,some errors need correct by hand
+5. 
+# TODO
+
+1. Bug: CNN model only support jupyter launch mode not command line 
+2. time-widget 
+3. export result function
+4. support low resolusion flurescent neuron morph or spine label images (test data is 0.16um/pixel) , supersolusion not support 
+5. sample data 

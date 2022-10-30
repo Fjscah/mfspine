@@ -1,0 +1,83 @@
+# den profile only identify dendrite , so num class =2
+Path:
+  data_path: "D:/data/Train/2Dimg_den/imgcrop"
+  label_path: "D:/data/Train/2Dimg_den/labelcrop"
+  oridata_path: "D:/data/Train/2Dimg_den/img"
+  orilabel_path: "D:/data/Train/2Dimg_den/label"
+  Train_path: "D:/data/Train/2Dimg_den/"
+  label_type: "segment" # [box,point,mask]
+  label_suffix: "den"
+  filetype: ".tif"
+  tfrecord_path: "D:/spine/spinesoftware/myspine/data/Train/2Dimg2/tfrecord" # store train and test tfrecord
+  model_save_path: "models/M2d_den/model/model.ckpt"
+  log_path: "models/M2d_den/log" # error tensorboard score log dir
+  model_path : "D:/code/myspine/models/M2d_den/model"
+  model_load_path: "models/M2d_den/model/best/"
+Data:
+  axes: 'yx' # change to zyx ,todo
+  z_factor: 2.0 # z spacing / x spancing ,x spacing=y spacing,todo
+  input_sizez: 1  # Input depth ,z
+  input_sizexy: 256   # Input feature width/height,for crop generate img data
+  num_classes: 3 # include zero background
+  partion : [0.6,0.2,0.2] # train,valid,test+=1
+  c_val : "auto" # background value
+
+
+  train_paths: 'train.tfrecords'
+  validation_paths: 'validation.tfrecords'
+  test_paths: 'test.tfrecords'
+  inputchannel: 1 # 1: grayscale,todo
+
+  data_augmentation:
+    translate: false
+    flip: true
+    rotate: true
+    probability: 0.3
+    affine: 0.3
+  scaling: "FullRange" # FullRange, DatasetNorm, DatasetSTD, StackNorm, StackSTD, PatchNorm, PatchSTD
+  padding_type: 'REFLECT'
+  padding_type_depth: 'CONSTANT'
+  buffer_size: 750
+  d_weight: True
+  weight_method:
+    type: 'window'
+    at_stack_level: True
+    use_depth_context: True
+    cutoff_dist: 5
+    close_weight: 2
+    far_weight: 2  
+
+Training:
+  model : "unet2d" # unet2d vnet ...
+  batch_size: 4
+  cls_weight: [1,1,1]
+  epochs: 100
+  optimizer_name: "Adam" # supports [Adam, Adagrad, RMSProp]
+  learning_rate: 0.0001
+  denovo : False
+  learning_rate_type: "None"
+  deep_supervision: false
+  validate_iterations: 1000 # saves weights every n iterations
+  convergence_iterations: 1000
+  seed: 42
+  
+Test:
+  images_output_path: 'output/M1/images'
+  batch_size: 1
+  data_path:
+    - 'test.tfrecords'
+Network:
+  loss_type: 'w_cross_entropy'
+  load_model: True
+  base_filter: 16
+  activation_function: "relu" # supports [relu, leaky_relu]
+  droput: True
+  droput_probability: 0.15 # value in range [0 - 1]
+  kernel_init: 'he_normal'  # He, normal
+  kernel_regularizer: 'None' # "None","L2"
+  reg_factor: 0.0
+  mixed_precision: True
+  use_shallow_network: True
+  layer_num: 3 #todo
+
+

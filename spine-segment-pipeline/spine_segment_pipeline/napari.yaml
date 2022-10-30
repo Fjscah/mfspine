@@ -1,0 +1,28 @@
+name: spine-segment-pipeline # plugin name
+contributions:
+  commands:
+    - id: spine-segment-pipeline.time_widget # start widget
+      title: time series widget
+      python_name: spine_segment_pipeline:time_widget
+    - id: spine-segment-pipeline.label_widget # start label widget
+      title: label widget
+      python_name: spine_segment_pipeline:label_widget
+    - id: spine-segment-pipeline.dendrite_2d # load sample
+      title: dendrite 2d sample
+      python_name: spine_segment_pipeline._sample_data:sample_den_2d
+    - id: spine-segment-pipeline.dendrite_3d # load sample
+      title: dendrite 3d sample
+      python_name: spine_segment_pipeline._sample_data:sample_den_3d
+  widgets:
+    - command: spine-segment-pipeline.time_widget  # 
+      display_name: time widget # widget will show packagename+displayname in plugin menu ans widget docker
+    - command: spine-segment-pipeline.label_widget  # 
+      display_name: label widget # widget will show packagename+displayname in plugin menu ans widget docker
+      #autogenerate: true
+  sample_data:
+  - key: dendrite_2d
+    display_name: dendrite (2D)
+    command: spine-segment-pipeline.dendrite_2d
+  - key: dendrite_3d
+    display_name: dendrite (3D)
+    command: spine-segment-pipeline.dendrite_3d

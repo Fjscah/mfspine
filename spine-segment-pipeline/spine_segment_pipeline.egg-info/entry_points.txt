@@ -1,0 +1,2 @@
+[napari.manifest]
+spine-segment-pipeline = spine_segment_pipeline:napari.yaml
