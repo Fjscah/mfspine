@@ -1,30 +1,30 @@
 # directory structure
 
-+---config
-|-parameter profile
-+---dataset
-|-dataloader: loader data and split data into train/valid/test folder
-|-enhancer:augmentation
-|-localthreshold
-+---models : store trained model
-|-store models
-+---networks
-|-some networks
-+---trainers
-|-loss
-|-metrics
-|-trainer
-|-test
-+---transformer
-| no use
-+---utils
-|-yaml_config : load default yaml profile, you need change it to yours. some yaml profile templates in config folder
-|-file_base
++---config  
+|-parameter profile  
++---dataset  
+|-dataloader: loader data and split data into train/valid/test folder  
+|-enhancer:augmentation  
+|-localthreshold  
++---models : store trained model  
+|-store models  
++---networks  
+|-some networks  
++---trainers  
+|-loss  
+|-metrics  
+|-trainer  
+|-test  
++---transformer  
+| no use  
++---utils  
+|-yaml_config : load default yaml profile, you need change it to yours. some yaml profile templates in config folder  
+|-file_base  
 
 # usage
 0. anotation 
    
-   you nedd install [spine-segment-pipeline pluin](\myspine\spine-segment-pipeline)
+   you nedd install [spine-segment-pipeline pluin](..\..\spine-segment-pipeline)
 
 1. set yaml config profile
    
